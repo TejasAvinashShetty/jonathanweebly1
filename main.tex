@@ -1,0 +1,68 @@
+\documentclass{report}
+
+% ---------------------------------------
+\usepackage{amsmath}
+
+% ---------------------------------------
+% Colour for queries
+\usepackage{color}
+\newcommand\red[1]{{\color{red}#1}}
+\newcommand\aq[1]{{\color{red}\{Query: #1\}}}
+
+% ---------------------------------------
+\begin{document}
+
+\section*{Page 1}
+
+\begin{align*}
+\dot{X} &= (w_0 \Omega_z + A \cos(\omega_0 t) \Omega_x + A \sin(\omega_0 t) \Omega_y) \red{??} \\
+e^{-\lambda A} B e^{+\lambda A} &= f(\lambda), \qquad f(0) = e^0 \\
+f'(\lambda) &= -Ae^{-\lambda A} B e^{+\lambda A} + 0 + e^{-\lambda A} BA e^{+\lambda A} \red{??} \\
+            &= -e^{-\lambda A} AB e^{\lambda A} + e^{-\lambda A} BA e^{\lambda A} \\
+            &= e^{-\lambda A} (-AB) e^{\lambda A} + e^{-\lambda A} BA e^{\lambda A} \\
+            &= e^{-\lambda A} \{ -AB + BA \} e^{\lambda A} \\
+            &= e^{-\lambda A} \{ BA - AB \} e^{\lambda A} \\
+            &= e^{-\lambda A} [ B,A ] e^{\lambda A} 
+\intertext{Similarly,}            
+f''(\lambda) &= e^{-\lambda A} \left[ [ B,A ], A \right] e^{\lambda A} \\
+\\
+f(\lambda) &= f(0) + \frac{\lambda}{1!} f'(0)  + \frac{\lambda^2}{2!} f''(0) + \dots \\
+           &= B + \lambda
+\end{align*}
+
+% ---------------------------------------
+\section*{Page 2}
+
+\begin{align*}
+f(0)  &= e^{-\lambda A} B e^{\lambda A} \big\vert_{\lambda=0} \\
+      &= e^{-(0) A} B e^{(0) A} \big\vert_{\lambda=0} \\
+      &= I B I \\
+      &= B \\
+\\
+f'(0) &= e^{-\lambda A} [ B,A ] e^{\lambda A} \big\vert_{\lambda=0} \\
+      &= e^{-(0) A} [B,A] e^{(0) A} \\
+      &=I [B,A] I \\
+      &= [B,A]
+\intertext{Similarly,}            
+f''(0) &= e^{-\lambda A} \left[ [ B,A ], A \right] e^{\lambda A} \big\vert_{\lambda=0} \\
+       &= e^{-(0) A} [[B,A],A] e^{(0) A} \\
+      &=I [[B,A],A] I \\
+      &= [[B,A],A]
+\end{align*}
+
+% ---------------------------------------
+\section*{Page 3}
+
+\begin{align*}
+f(\lambda) &= f(0) + \frac{\lambda}{1!} f'(0) + \frac{\lambda^2}{2!} f''(0) + \frac{\lambda^3}{3!} f'''(0) + \dots \\
+\\
+e^{-\lambda A} B e^{\lambda A} &= B + \frac{\lambda}{1!} [B,A] + \frac{\lambda^2}{2!} [[B,A],A] \\
+\intertext{For $\lambda=1$,}
+e^{-A} B e^{A} &= B + \frac{[B,A]}{1!} + \frac{[[B,A],A]}{2!} \\
+\intertext{Switching $A$ and $B$:}
+e^{-B} B e^{B} &= A + \frac{[A,B]}{1!} + \frac{[[A,B],B]}{2!} \\
+\end{align*}
+
+
+
+\end{document}
